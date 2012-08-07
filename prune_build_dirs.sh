@@ -39,7 +39,7 @@ source_directory_types () {
 		if [ -f "$dir_entry" ]; then
 			if [ "$dir_entry_name" == "$INDICATOR_FILE_MAVEN" ]; then
 				project_types=$((project_types + $PROJECT_TYPE_MAVEN))
-				if [ $(( 0 < (project_types ^ PROJECT_TYPE_MAVEN) )) ]; then  # this optimization targets precisely two build systems, any more or less and this won't work!
+				if [ $(( project_types ^ PROJECT_TYPE_MAVEN )) -gt 0 ]; then  # this optimization targets precisely two build systems, any more or less and this won't work!
 					return
 				fi
 			elif [ "${dir_entry_name}" == "$INDICATOR_FILE_GRADLE" ]; then
