@@ -7,13 +7,13 @@
 
 
 
-ROOT_DIRECTORY=~/SkyDrive/Development/Java   # Directory to decend into look for Maven and Gradle build directories. Must be a full path!
-INDICATOR_FILE_MAVEN="pom.xml"               # File indicating a Maven source directory
-INDICATOR_FILE_GRADLE="build.gradle"         # File indicating a Gradle source directory
-KILL_LIST_MAVEN="target"                     # Name of Maven build dir to delete
-KILL_LIST_GRADLE="build"                     # Name of Gradle build dir to delete
-PROJECT_TYPE_MAVEN=1                         # Bitwise indicator type for a Maven project direcotry
-PROJECT_TYPE_GRADLE=2                        # Bitwise indicator type for a Gradle project directory
+declare -r ROOT_DIRECTORY=~/SkyDrive/Development/Java   # Directory to decend into look for Maven and Gradle build directories. Must be a full path!
+declare -r INDICATOR_FILE_MAVEN="pom.xml"               # File indicating a Maven source directory
+declare -r INDICATOR_FILE_GRADLE="build.gradle"         # File indicating a Gradle source directory
+declare -r KILL_LIST_MAVEN="target"                     # Name of Maven build dir to delete
+declare -r KILL_LIST_GRADLE="build"                     # Name of Gradle build dir to delete
+declare -i PROJECT_TYPE_MAVEN=1                         # Bitwise indicator type for a Maven project direcotry
+declare -i PROJECT_TYPE_GRADLE=2                        # Bitwise indicator type for a Gradle project directory
 
 
 
@@ -74,7 +74,7 @@ prune_ephemeral_directories () {
 
 		if [ ! -d "$file_path_full" ]; then continue; fi   # Optimization to skip non-directories. Will not follow symlinks as a result
 
-		project_types=0
+		declare -i project_types=0
 		source_directory_types "$file_path_full"
 		if [ $project_types -ne 0 ]; then
 			maven_target="${file_path_full}/${KILL_LIST_MAVEN}"
