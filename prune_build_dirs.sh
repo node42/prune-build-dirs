@@ -7,7 +7,7 @@
 
 
 
-declare -r ROOT_DIRECTORY=~/SkyDrive/Development/Java   # Directory to decend into look for Maven and Gradle build directories. Must be a full path!
+declare -r ROOT_DIRECTORY=.                             # Directory to decend into look for Maven and Gradle build directories. Must be a full path!
 declare -r INDICATOR_FILE_MAVEN="pom.xml"               # File indicating a Maven source directory
 declare -r INDICATOR_FILE_GRADLE="build.gradle"         # File indicating a Gradle source directory
 declare -r KILL_LIST_MAVEN="target"                     # Name of Maven build dir to delete
